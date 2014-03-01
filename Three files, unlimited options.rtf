@@ -1,0 +1,531 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fswiss\fcharset0 Helvetica;\f2\fnil\fcharset0 HelveticaLTStd-Blk;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red38\green38\blue38;\red14\green115\blue192;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid2\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid3\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li2160\lin2160 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid4\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li2880\lin2880 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid5\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li3600\lin3600 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\ls1\ilvl0
+\f0\fs28 \cf2 {\listtext	\'95	}Started in Thematic - but I don\'92t recommend it. To do what we want to do, you kinda do have to be a real coder. The markup is simply buried too deep.\
+\pard\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural
+\ls1\ilvl1\cf2 {\listtext	\'95	}Functions buried in functions buried in template parts - many parts target a given element.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}I\'92m only showing you this for one reason: \
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}/**
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2  * Markup before the widget
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2  */
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 function thematic_before_widget() \{
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 	$content = \'91<li id=\'93%1$s\'94 class=\'93widgetcontainer %2$s\'94>\'92;
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 	return apply_filters(\'91thematic_before_widget\'92, $content);
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 \}
+\f1\fs24 \cf0 \
+\
+\
+\ls1\ilvl3
+\f0\fs28 \cf2 /**
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2  * Markup after the widget
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2  */
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 function thematic_after_widget() \{
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 	$content = \'91</li>\'92;
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 	return apply_filters(\'91thematic_after_widget\'92, $content);
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 \}
+\f1\fs24 \cf0 \
+\
+\ls1\ilvl3
+\f0\fs28 \cf2 /**
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2  * Markup before the widget title
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2  */
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 function thematic_before_title() \{
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 	$content = \'93<h3 class=\\\'94widgettitle\\\'94>\'94;
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 	return apply_filters(\'91thematic_before_title\'92, $content);
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 \}
+\f1\fs24 \cf0 \
+\
+\
+\ls1\ilvl3
+\f0\fs28 \cf2 /**
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2  * Markup after the widget title
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2  */
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 function thematic_after_title() \{
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 	$content = \'93</h3>\\n\'94;
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 	return apply_filters(\'91thematic_after_title\'92, $content);
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 \}
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 \
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}Aaaand this calls the widget - sticks it on the page.\
+{\listtext	\'95	}So, fine, I thought. I\'92ll make my own.\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}Putting it on the home page did not: WSOD.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}// Let\'92s move the subsidiary widget area below the header, but only on the home page.
+\f1\fs24 \cf0 \
+\
+\ls1\ilvl2
+\f0\fs28 \cf2 if ( ( is_home ) || ( is_front_page ) )\{
+\f1\fs24 \cf0 \
+\
+\ls1\ilvl2
+\f0\fs28 \cf2 function move_subsidiaries($content) \{
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2   $content[\'911st Subsidiary Aside\'92][\'91action_hook\'92] = \'91thematic_belowheader\'92;
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2   $content[\'912nd Subsidiary Aside\'92][\'91action_hook\'92] = \'91thematic_belowheader\'92;
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2   $content[\'913rd Subsidiary Aside\'92][\'91action_hook\'92] = \'91thematic_belowheader\'92;
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2   return $content;
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2 \}
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2 add_filter(\'91thematic_widgetized_areas\'92, \'91move_subsidiaries\'92);
+\f1\fs24 \cf0 \
+\
+\ls1\ilvl2
+\f0\fs28 \cf2 // Now we need to unhook everything else that\'92s related to the subsidiary widget area
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2 function remove_relatedfunctions() \{
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2     remove_action(\'91widget_area_subsidiaries\'92, \'91thematic_subsidiaryopen\'92, 10);
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2     remove_action(\'91widget_area_subsidiaries\'92, \'91add_before_first_sub\'92,20);
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2     remove_action(\'91widget_area_subsidiaries\'92, \'91add_between_firstsecond_sub\'92,40);
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2     remove_action(\'91widget_area_subsidiaries\'92, \'91add_between_secondthird_sub\'92,60);
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2     remove_action(\'91widget_area_subsidiaries\'92, \'91add_after_third_sub\'92,80);
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2     remove_action(\'91widget_area_subsidiaries\'92, \'91thematic_subsidiaryclose\'92, 200);
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2 \}
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2 add_action(\'91init\'92, \'91remove_relatedfunctions\'92);
+\f1\fs24 \cf0 \
+\
+\ls1\ilvl2
+\f0\fs28 \cf2 // And now we need to add these functions to thematic_header()
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2 add_action(\'91thematic_belowheader\'92, \'91thematic_subsidiaryopen\'92, 15);
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2 add_action(\'91thematic_belowheader\'92, \'91add_before_first_sub\'92,20);
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2 add_action(\'91thematic_belowheader\'92, \'91add_between_firstsecond_sub\'92,40);
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2 add_action(\'91thematic_belowheader\'92, \'91add_between_secondthird_sub\'92,60);
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2 add_action(\'91thematic_belowheader\'92, \'91add_after_third_sub\'92,80);
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2 add_action(\'91thematic_belowheader\'92, \'91thematic_subsidiaryclose\'92, 200);
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2 function head_wrap_end() \{ ?>
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2   </div><!\'97 #head_wrap_end \'97>
+\f1\fs24 \cf0 \
+\
+\ls1\ilvl2
+\f0\fs28 \cf2 <?php
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2 \}
+\f1\fs24 \cf0 \
+\
+\ls1\ilvl2
+\f0\fs28 \cf2 add_action(\'91thematic_belowheader\'92, \'91head_wrap_end\'92, 300);
+\f1\fs24 \cf0 \
+\
+\ls1\ilvl2
+\f0\fs28 \cf2 \}\
+{\listtext	\'95	}As Thematic prefers, the .home body class shows them on the home page - the regular IDs hide them on the content pages.\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}	 .home #first.aside.sub-aside,
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 	 .home #second.aside.sub-aside,
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 {\listtext	 .home #third.aside.sub-aside	}\{
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 		background: rgba(255, 255, 255, 0.7);
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 		display: inline-block;
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 		float: left;
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 		margin: 0 2%;
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 		padding: 1.625em;
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 		width: 25%;
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 	\}
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 	
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 	 #first.aside.sub-aside,
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 	 #second.aside.sub-aside,
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 {\listtext	 #third.aside.sub-aside	}\{
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 		display: none; 
+\f1\fs24 \cf0 \
+\ls1\ilvl3
+\f0\fs28 \cf2 	\}\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}Everything else was a matter of finding elements and styling them. Which was a lot more complicated, because so much markup is buried several folders deep in the parent theme.\
+\pard\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural
+\ls1\ilvl1\cf2 {\listtext	\'95	}Every page in Thematic has 13 widget areas.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\ls1\ilvl0\cf2 {\listtext	\'95	}Three files, unlimited design options:
+\f1\fs24 \cf0 \
+\ls1\ilvl0
+\f0\fs28 \cf2 Make your site look like anything in Genesis or Thematic.\
+\pard\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural
+\ls1\ilvl1
+\f2\b \cf2 {\listtext	\'95	}8-So here\'92s a PSD mockup of our demo. \
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2
+\f0\b0 \cf2 {\listtext	\'95	}This is of course the desktop version of our site. \
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}In the real world, we\'92d be working mobile-first.  (stacked-divs joke) \
+{\listtext	\'95	}In fact, this child theme is mobile-first, and that\'92s exactly how it starts. It was turning the widescreen into something decent that got tricky.\
+{\listtext	\'95	}Who has a better method for designing mobile-first?\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf0 {\listtext	\'95	}I hardly ever make real page mockups - \
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}I like Style Tiles better.\
+{\listtext	\'95	}And I also do a fair bit of design in the browser.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}90% of the basis of layout flexibility, I think, is widget areas. Or, in html5, asides.\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}You move them around\
+\ls1\ilvl3\cf0 {\listtext	\'95	}You put stuff in them,\
+\ls1\ilvl3\cf2 {\listtext	\'95	}You style them how you want.\
+{\listtext	\'95	}You add them and subtract them.\
+{\listtext	\'95	}Show them and hide them.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}The other 10% is prudent use of jQuery. I\'92d say just plain Javascript if I were better at it - and then it would get more than 10%. \
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}But I promised you you could do anything by editing three  php files.\
+{\listtext	\'95	}If you can paste the commands to register and load jQuery scripts into functions.php, you\'92re still only editing one of our three files. \
+\pard\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural
+\ls1\ilvl1
+\f2\b \cf2 {\listtext	\'95	}1-Intro/rapport\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2
+\f0\b0 \cf2 {\listtext	\'95	}about me\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}30 years a designer.\
+{\listtext	\'95	}Also write copy, shoot still photos and video.\
+{\listtext	\'95	}Started on the web in 1998 with GoLive.\
+{\listtext	\'95	}How many of you are concerned you might be too old to learn to code?\
+\pard\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li4320\fi-4320\pardirnatural
+\ls1\ilvl4\cf2 {\listtext	\'95	}I started writing CSS at 47.\
+{\listtext	\'95	}I started with WP - and PHP - after I turned 50.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}Who's here?\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}Print designers? \
+{\listtext	\'95	}Web designers?\
+\pard\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li4320\fi-4320\pardirnatural
+\ls1\ilvl4\cf2 {\listtext	\'95	}Strictly WYSIWG/scared to death of code?\
+{\listtext	\'95	}Write HTML/CSS?\
+{\listtext	\'95	}Mess with php?\
+{\listtext	\'95	}Who\'92s working with HTML5?\
+\pard\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural
+\ls1\ilvl1
+\f2\b \cf2 {\listtext	\'95	}9-A formal Best Practices workflow might look like this:\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2
+\f0\b0 \cf2 {\listtext	\'95	}Message strategy/creative brief.\
+{\listtext	\'95	}PSD mockup or something analogous - mood board, Style Tiles, whatever.\
+{\listtext	\'95	}CSS defaults.\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}320 and up, Foundation, Bootstrap \'85\
+{\listtext	\'95	}I like the idea of a basic sheet of elements to style at the beginning so I don\'92t forget anything.\
+{\listtext	\'95	}But don\'92t use them as is - rewrite them to look like the texture of your design.\
+\pard\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li4320\fi-4320\pardirnatural
+\ls1\ilvl4\cf2 {\listtext	\'95	}Type\
+{\listtext	\'95	}Colors\
+{\listtext	\'95	}Icons\
+{\listtext	\'95	}Buttons\
+{\listtext	\'95	}form fields\
+{\listtext	\'95	}And more.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}Then open your theme and @import your type and your defaults into style.css. \
+\pard\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural
+\ls1\ilvl1
+\f2\b \cf2 {\listtext	\'95	}2-When does a WP site not look like a WP site?\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2
+\f0\b0 \cf2 {\listtext	\'95	}Standard WP look: Header, 3 widgets, footer.\
+{\listtext	\'95	}Some themes look a little more creative.\
+{\listtext	\'95	}Some look completely different!\
+\pard\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural
+\ls1\ilvl1
+\f2\b \cf2 {\listtext	\'95	}3-How do we get to completely different?\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2
+\f0\b0 \cf2 {\listtext	\'95	}Look for themes
+\f1\fs24 \cf0  
+\f0\fs28 \cf2 that do it for us.\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}Elegant\
+{\listtext	\'95	}Themeforest\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}Themes are gorgeous. But they have problems.\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}Elegant doesn\'92t play nicely with plugins.\
+{\listtext	\'95	}Themeforest themes have huge functionality built in. Cool. right?\
+{\listtext	\'95	}Nuh uh. Who knows what the problem might be with that? (\uc0\u8706  between theme, plugin roles)\
+{\listtext	\'95	}And I don\'92t know about you, but how much designing are we doing if we pick a theme off the shelf and just adapt it to my client\'92s brand.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}Roll our own!
+\f1\fs24 \cf0 \
+\ls1\ilvl2
+\f0\fs28 \cf2 Which I\'92ve found is much easier with a framework.\
+\pard\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural
+\ls1\ilvl1
+\f2\b \cf2 {\listtext	\'95	}10-Here are the three files we\'92re going to change.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2
+\f0\b0 \cf2 {\listtext	\'95	}style.css\
+{\listtext	\'95	}functions.php\
+{\listtext	\'95	}page_template.php\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}{\field{\*\fldinst{HYPERLINK "http://codex.wordpress.org/images/1/18/Template_Hierarchy.png"}}{\fldrslt http://codex.wordpress.org/images/1/18/Template_Hierarchy.png}}\
+{\listtext	\'95	}home pages\
+\pard\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li4320\fi-4320\pardirnatural
+\ls1\ilvl4\cf2 {\listtext	\'95	}home.php\
+{\listtext	\'95	}index.php\
+{\listtext	\'95	}front-page.php\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}page_funky_layout.php\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}They\'92re the same three files in both themes.\
+\pard\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural
+\ls1\ilvl1
+\f2\b \cf2 {\listtext	\'95	}11- I promised you we\'92d do this in Thematic and Genesis, but we\'92re gonna do it in Underscores and Genesis instead.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2
+\f0\b0 \cf2 {\listtext	\'95	}Better ongoing support\
+{\listtext	\'95	}Easier to find and change the markup\
+{\listtext	\'95	}HTML5 baked in\
+{\listtext	\'95	}Preserves the illusion that I actually know what I\'92m doing up here.\
+{\listtext	\'95	}Thematic kicked my butt after three days in West Virginia, just to move three simple widget areas into place.\
+\pard\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural
+\ls1\ilvl1
+\f2\b \cf2 {\listtext	\'95	}4-What is a framework?\
+A sort of a supertheme.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2
+\f0\b0 \cf3 {\listtext	\'95	}According to the {\field{\*\fldinst{HYPERLINK "http://codex.wordpress.org/Theme_Frameworks"}}{\fldrslt \cf4 WordPress Codex}}, the term has two meanings:\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf3 {\listtext	\'95	}1.	A drop-in code library that [helps us develop] a Theme.\
+{\listtext	\'95	}2.	A standalone base/starter Theme that [we can either fork into another Theme, or use as a] Parent Theme template.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}The way I think of them:\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}The styles are actually there in the CSS file - but they\'92re kinda bland.\
+{\listtext	\'95	}I\'92s up to us to turn them into something.\
+{\listtext	\'95	}Widgeted areas built in - we can also add more.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}Examples:\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}PageLines\
+{\listtext	\'95	}Thesis\
+{\listtext	\'95	}Headway\
+{\listtext	\'95	}Builder\
+{\listtext	\'95	}Genesis\
+{\listtext	\'95	}Thematic\
+\pard\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural
+\ls1\ilvl1\cf2 {\listtext	\'95	}Thanks!\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}Files are on Github\
+\pard\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural
+\ls1\ilvl1
+\f2\b \cf2 {\listtext	\'95	}12-Here it is coded in Underscores.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2
+\f0\b0 \cf2 {\listtext	\'95	}Here\'92s what Underscores looks like before we do anything with it.\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}Dressed.\
+{\listtext	\'95	}And undressed.\
+{\listtext	\'95	}Our goal is to make three of these sidebar areas \'85\
+{\listtext	\'95	}Move them here, in the widescreen version.\
+{\listtext	\'95	}And put an excerpt of a featured post in each one.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}How many of you have ever worked with Underscores before? Ever heard of it?\
+{\listtext	\'95	}It\'92s the official starter theme from Automattic.\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}You don\'92t make a child theme - you just edit the files in place.\
+{\listtext	\'95	}Let\'92s start by registering our sidebars in functions.php. (Takem through the lines \'85)\
+{\listtext	\'95	}Now we\'92ve made them - let\'92s lay them in to our home page.\
+{\listtext	\'95	}They need some style.\
+{\listtext	\'95	}And, here they are on the Widgets dashboard!\
+{\listtext	\'95	}This was the best featured-posts plugin I could find, and I still needed to do some serious editing to make the posts look right.\
+\pard\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural
+\ls1\ilvl1
+\f2\b \cf2 {\listtext	\'95	}4.5-Four pro tips for working with sites.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2
+\f0\b0 \cf2 {\listtext	\'95	}RTFS:\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf0 {\listtext	\'95	}Use browser dev tools.\
+\pard\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li4320\fi-4320\pardirnatural
+\ls1\ilvl4\cf0 {\listtext	\'95	}Chrome\
+{\listtext	\'95	}Firefox\
+{\listtext	\'95	}Firebug if you want. I don\'92t get the hype.\
+{\listtext	\'95	}Whatever you use, it will give you the exact CSS file and line number to change any style.\
+{\listtext	\'95	}If it\'92s not there, you get to write it into your sheet yourself.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}RTFM: Not, these days, a printed manual, necessarily - but when in doubt, Google.\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}At a minimum you want a visual hook/action reference for your framework.\
+{\listtext	\'95	}There are hidden nuggets of info even in basic setup guides.\
+{\listtext	\'95	}Most frameworks have code snippets that do something close to what we need.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}RTFC.\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}I know we\'92re designers. And I thought I was a coder a couple weeks ago. \
+{\listtext	\'95	}Read it anyway. It\'92s in English, and well commented code will even show you what it\'92s supposed to be doing.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}And don\'92t panic if you wind up spending some time in West Virginia.\
+\pard\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural
+\ls1\ilvl1
+\f2\b \cf2 {\listtext	\'95	}13-Now. Here it is, coded in Genesis.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2
+\f0\b0 \cf2 {\listtext	\'95	}Same three files.\
+{\listtext	\'95	}It looks more complicated and codey, but it\'92s really not. For one thing, there\'92s about a million people writing code snippets we can just drop in.\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}Here\'92s the basic Genesis theme.\
+{\listtext	\'95	}Here\'92s the visual reference.\
+{\listtext	\'95	}And here are the asides we\'92re going to make\'85\
+{\listtext	\'95	}and move.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}The code to make the asides is pretty much identical to the Underscores code. You can add the markup, like Underscores, if you want.\
+{\listtext	\'95	}Laying out the widgets is pretty straightforward. I just found a recent article that showed you can do it without the action hook - almost exactly like Underscores. Biut I KNOW this works.\
+{\listtext	\'95	}Now let\'92s make them match the Underscores widgets \'85\
+{\listtext	\'95	}add the Featured Posts \'85 without rewriting the markup, I might add.\
+\pard\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural
+\ls1\ilvl1
+\f2\b \cf2 {\listtext	\'95	}5-A big advantage to frameworks: the files are consistent across child themes.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2
+\f0\b0 \cf2 {\listtext	\'95	}Learn where stuff is in one, and you've learned them all.\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}CSS, php files pretty much laid out in the same order.\
+{\listtext	\'95	}What geeks call the codebase.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}So it\'92s easier to change the look:\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}Agentpress vs Sandy\
+{\listtext	\'95	}Agency vs mhancers, JCC, CNR\
+{\listtext	\'95	}Minimum vs casino\
+\pard\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural
+\ls1\ilvl1
+\f2\b \cf2 {\listtext	\'95	}14-Things we didn\'92t cover, but can:\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2
+\f0\b0 \cf2 {\listtext	\'95	}Typography.\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}Why do I self-host my type?\
+{\listtext	\'95	}Choosing faces that work together.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}Laying out the header - it was different in the two frameworks.\
+{\listtext	\'95	}The phone versions.\
+\pard\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural
+\ls1\ilvl3\cf2 {\listtext	\'95	}Even if there\'92s no time for a fully responsive design, at least make sure the site works on a phone. \
+{\listtext	\'95	}That means body copy we can read.\
+{\listtext	\'95	}And NO MODALS.\
+\pard\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural
+\ls1\ilvl2\cf2 {\listtext	\'95	}Starter themes with Bootstrap, Foundation built in.\
+}
